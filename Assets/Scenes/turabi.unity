@@ -211,7 +211,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56315473}
-  m_LocalRotation: {x: 0.19096556, y: 0.000000012619117, z: -1.2652804e-10, w: 0.98159677}
+  m_LocalRotation: {x: 0.19096556, y: -0.000000012619117, z: 1.2652804e-10, w: 0.98159677}
   m_LocalPosition: {x: 63, y: 61.353027, z: -22.91706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -470,15 +470,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 184989872}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c0de5e9f6cf544493cf80b9d008ff3, type: 3}
+  m_Script: {fileID: 11500000, guid: 23d83487e997c5642947296cd8b28cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   moveSpeed: 0
-  Nest: []
   Object: {fileID: 0}
-  SpawnPosition: []
-  toPosition: {x: 0, y: 0, z: 0}
   isArrived: 0
 --- !u!114 &184989875
 MonoBehaviour:
@@ -489,15 +485,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 184989872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc0d440752cb0e44b8fac2f94099b1ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 908e309a584d8e248985602e36cd2498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animalPrefabs:
-  - {fileID: 5605683280536973555, guid: 77ca937de6036e9428984bd087f04e33, type: 3}
-  - {fileID: 8147414066774271934, guid: c21d4d4be888c9e4fadd27af96068fa5, type: 3}
+  - {fileID: 4208262821578047004, guid: 94d3298938ceac54fb3f6b9d5b882292, type: 3}
+  - {fileID: 2105696307274426849, guid: 653a4f5153d64e74bbe62565cf5a5ea0, type: 3}
   startDelay: 2
   spawnRate: 5
-  SpawnPosition: []
   script: {fileID: 184989874}
 --- !u!1 &254562634
 GameObject:
@@ -1232,7 +1227,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953414392}
-  m_LocalRotation: {x: 0.18739368, y: 0.000000008450784, z: -0.0000000016121835, w: 0.9822849}
+  m_LocalRotation: {x: 0.18739368, y: -0.000000008450784, z: 0.0000000016121835, w: 0.9822849}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1900,7 +1895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da83f995f43443749973739e18612411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputData: {fileID: 11400000, guid: 4df78ca480c6ec249986f993cf982911, type: 2}
 --- !u!1 &1716276285
 GameObject:
   m_ObjectHideFlags: 0
