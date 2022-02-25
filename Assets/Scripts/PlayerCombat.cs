@@ -6,8 +6,6 @@ public class PlayerCombat : MonoBehaviour
 {
     //serialized
     [SerializeField] private float attackCD=0.5f;
-    [SerializeField] private float damageEffectCD = 0.3f;
-
 
     //private
     private bool inRange;
@@ -28,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetButton("Fire1")  && inRange && canAttack)
         {     
             StartCoroutine(SetAttackCooldown());
-            StartCoroutine(DamageColorCooldown(_closestEnemy));
+            _closestEnemy.GetDamage();
         }
 
     }
@@ -39,14 +37,6 @@ public class PlayerCombat : MonoBehaviour
         canAttack = true;
     }
 
-    public IEnumerator DamageColorCooldown(EnemyManager lastenemy)
-    {
-        if(lastenemy!=null)
-            lastenemy.transform.parent.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        yield return new WaitForSeconds(attackCD);
-        if (lastenemy != null)
-            lastenemy.transform.parent.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
-    }
 
     void OnTriggerEnter(Collider col)
     {
