@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 9005842398789101952}
   - component: {fileID: 5024067305963606595}
   - component: {fileID: 3695474786534923634}
-  - component: {fileID: 4064989523234906982}
+  - component: {fileID: 5772490854532807759}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -243,7 +243,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4064989523234906982
+--- !u!114 &5772490854532807759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,4 +255,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15d61fe7c316c54bb1ceeca8cd016ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   damageEffectCD: 0.3

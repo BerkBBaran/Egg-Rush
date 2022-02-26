@@ -14,12 +14,12 @@ public class EnemyMovement : MonoBehaviour
     public int spawnerNo;
     public List<Transform> NestPoints;
     public List<Transform> SpawnPoints;
+    public bool isArrived = false;
 
     Rigidbody rb;
     //privates
     private int targetNestNo;
     private Vector3 toPosition;
-    private bool isArrived = false;
     private bool isGrounded;
     
 
@@ -50,10 +50,16 @@ public class EnemyMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
 
-        if (!isArrived)
+        if (!isArrived){
             goPosition(NestPoints[targetNestNo].position);
+        }
         else
+        {
+            moveSpeed = 110;
             goPosition(SpawnPoints[spawnerNo].position);
+
+        }
+
 
     }
     private int TargetNest()

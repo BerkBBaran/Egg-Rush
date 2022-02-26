@@ -6,11 +6,12 @@ public class PlayerCombat : MonoBehaviour
 {
     //serialized
     [SerializeField] private float attackCD=0.5f;
+    [SerializeField] private float attackDamage;
 
     //private
     private bool inRange;
     private bool canAttack;
-    private EnemyManager _closestEnemy;
+    public EnemyManager _closestEnemy;
  
     void Start()
     {
@@ -22,13 +23,12 @@ public class PlayerCombat : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetButton("Fire1")  && inRange && canAttack)
+    {           
+        if (Input.GetButton("Fire1") && inRange && canAttack && _closestEnemy!= null)
         {     
             StartCoroutine(SetAttackCooldown());
-            _closestEnemy.GetDamage();
+            _closestEnemy.GetDamage(attackDamage);
         }
-
     }
     public IEnumerator SetAttackCooldown()
     {
@@ -40,7 +40,6 @@ public class PlayerCombat : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
         EnemyManager tempSc = col.gameObject.GetComponent<EnemyManager>();
 
         if (tempSc != null)
@@ -52,14 +51,11 @@ public class PlayerCombat : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-
         EnemyManager tempSc = col.gameObject.GetComponent<EnemyManager>();
-
         if (tempSc != null)
         {
             inRange = false;
             _closestEnemy = null;
         }
     }
-
 }
