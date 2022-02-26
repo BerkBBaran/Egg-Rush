@@ -277,6 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCD: 0.5
+  attackDamage: 5
+  _closestEnemy: {fileID: 0}
 --- !u!1 &115661324
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267867347}
-  m_LocalRotation: {x: 0.18739368, y: -0.000000008450784, z: 0.0000000016121835, w: 0.9822849}
+  m_LocalRotation: {x: 0.18739368, y: 0.000000008450784, z: -0.0000000016121835, w: 0.9822849}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1116,7 +1118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826006554}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1283,7 +1285,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.19096556, y: -0.000000012619117, z: 1.2652804e-10, w: 0.98159677}
+  m_LocalRotation: {x: 0.19096556, y: 0.000000012619117, z: -1.2652804e-10, w: 0.98159677}
   m_LocalPosition: {x: 63, y: 61.353027, z: -22.91706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private float MaxHealth;
     [SerializeField] private float damageEffectCD = 0.3f;
+    [SerializeField] private GameObject myEgg;
     private float CurrentHealth;
     private EnemyMovement _enemyMovement;
 
@@ -19,23 +20,34 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         if(CurrentHealth <= 0){
-            gameObject.GetComponentInParent<EnemyMovement>().isArrived = true;
+            gameObject.GetComponent<EnemyMovement>().isArrived = true;
         }
     }
     public void GetDamage(float attackDamage)
     {
         StartCoroutine(DamageColorCooldown());
         CurrentHealth -= attackDamage;
-        Debug.Log("Shot! Current HP: " + CurrentHealth);
+        AmIDead();
+    }
+    public void TakeEgg()
+    {
+        myEgg.SetActive(true);
+
     }
     private IEnumerator DamageColorCooldown()
     {
-        transform.GetComponent<MeshRenderer>().material.color = Color.red;
+        transform.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         yield return new WaitForSeconds(damageEffectCD);
-        transform.GetComponent<MeshRenderer>().material.color = Color.white;
+        transform.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
     }
-    public void SetMaxHealth()
+    private void SetMaxHealth()
     {
         CurrentHealth = MaxHealth;
+    }
+    private void AmIDead() {
+        if (CurrentHealth <= 0)
+        {
+            Destroy(gameObject,0.2f);
+        }
     }
 }

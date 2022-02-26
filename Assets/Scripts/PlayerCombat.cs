@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        EnemyManager tempSc = col.gameObject.GetComponent<EnemyManager>();
+        EnemyManager tempSc = col.gameObject.GetComponentInParent<EnemyManager>();
 
         if (tempSc != null)
         {
@@ -51,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        EnemyManager tempSc = col.gameObject.GetComponent<EnemyManager>();
+        EnemyManager tempSc = col.gameObject.GetComponentInParent<EnemyManager>();
         if (tempSc != null)
         {
             inRange = false;

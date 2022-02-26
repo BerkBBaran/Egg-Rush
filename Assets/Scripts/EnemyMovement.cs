@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] public float groundDistance = 0.4f;
     [SerializeField] public LayerMask groundMask;
+    [SerializeField] private float positionTolerance = 2f;
     //public
     public int spawnerNo;
     public List<Transform> NestPoints;
@@ -21,12 +22,13 @@ public class EnemyMovement : MonoBehaviour
     private int targetNestNo;
     private Vector3 toPosition;
     private bool isGrounded;
+    private EnemyManager _enemyManager;
     
 
     // Start is called before the first frame update
     public void goPosition(Vector3 targetPosition)
         {
-            float positionTolerance = 1.5f;
+          
             toPosition = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
 
             if (Mathf.Abs(targetPosition.x - transform.position.x) + Mathf.Abs(targetPosition.z - transform.position.z) > positionTolerance)
@@ -36,12 +38,14 @@ public class EnemyMovement : MonoBehaviour
             }
             else{
                 isArrived = true;
+                _enemyManager.TakeEgg();
             }   
         }
     void Start()
     {     
         rb = transform.GetComponent<Rigidbody>();
         targetNestNo = TargetNest();
+        _enemyManager = transform.GetComponent<EnemyManager>();
     }
 
     // Update is called once per frame
