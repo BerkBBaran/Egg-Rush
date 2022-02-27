@@ -9,7 +9,8 @@ public class EggManager : MonoBehaviour
     [SerializeField] private int startEggAmount = 10;
     [SerializeField] private int timeRateEgg = 10;
     [SerializeField] private int eggPerWave = 10;
-    [SerializeField] private Text textUI;
+    [SerializeField] private Text eggText;
+    [SerializeField] private Text waveText;
 
     //private
     private int _eggAmount;
@@ -44,7 +45,7 @@ public class EggManager : MonoBehaviour
     }
     private void UpdateText()
     {
-        textUI.text = _eggAmount.ToString();
+        eggText.text = _eggAmount.ToString();
     }
     private void EggAddTimer()
     {
@@ -52,8 +53,13 @@ public class EggManager : MonoBehaviour
         if (_timeLeft < 0)
         {
             _timeLeft = timeRateEgg;
-            currentWave++;
+            NextWave();
             IncreaseEgg(eggPerWave*currentWave);
         }
+    }
+    private void NextWave()
+    {
+        currentWave++;
+        waveText.text = currentWave.ToString();
     }
 }

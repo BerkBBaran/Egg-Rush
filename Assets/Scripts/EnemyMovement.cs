@@ -47,18 +47,27 @@ public class EnemyMovement : MonoBehaviour
                 if (isGrounded)
                     rb.MovePosition( transform.position + Vector3.Normalize(toPosition) * Time.deltaTime * moveSpeed);
             }
-            else{
-                isArrived = true;
-                _enemyManager.TakeEgg();                
-            //    StartCoroutine(SetOnArriveAnimation()); Buglu, sürekli çalışıp duruyor çözemedim
+            else
+            {
+                if (!isArrived)
+                {
+                    isArrived = true;
+                    _enemyManager.TakeEgg();
+                //    StartCoroutine(SetOnArriveAnimation()); Buglu, sürekli çalışıp duruyor çözemedim
+                }
+                else 
+                {
+                Destroy(gameObject);
+                }
+
             }   
         }
     void Start()
     {     
         animator = GetComponent<Animator>();
-        rb = transform.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         targetNestNo = TargetNest();
-        _enemyManager = gameObject.GetComponent<EnemyManager>();
+        _enemyManager = GetComponent<EnemyManager>();
     }
 
     // Update is called once per frame

@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnRate);
-        InvokeRepeating("SpawnHuman",3,60);
+        //InvokeRepeating("SpawnHuman",3,60);
     }
 
     // Update is called once per frame
@@ -33,7 +33,6 @@ public class EnemySpawner : MonoBehaviour
     {
         int spawnIndex = Random.Range(0,SpawnPoints.Count);
         int animalIndex = Random.Range(0, animalPrefabs.Count);
-        int bossIndex = Random.Range(0,bossPrefabs.Count);
         Transform animal = Instantiate(animalPrefabs[animalIndex], SpawnPoints[spawnIndex].position, animalPrefabs[animalIndex].transform.rotation);
         
         //enemymovement script data transfer
@@ -58,6 +57,10 @@ public class EnemySpawner : MonoBehaviour
         mysc.spawnerNo = spawnIndex;
         mysc.NestPoints = NestPoints;
         mysc.SpawnPoints = SpawnPoints;
+
+        //enemymanager data transfer
+        EnemyManager mysc2 = boss.GetComponent<EnemyManager>();
+        mysc2._eggManager = _eggManager;
     }
 
 }

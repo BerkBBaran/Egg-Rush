@@ -18,11 +18,13 @@ public class EnemyManager : MonoBehaviour
     private float CurrentHealth;
     private EnemyMovement _enemyMovement;
     private Animator animator;
+    private int CarryEggAmount;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        CarryEggAmount = 0;
         animator = GetComponent<Animator>();
         SetMaxHealth();
     }
@@ -36,7 +38,7 @@ public class EnemyManager : MonoBehaviour
     }
     public void GetDamage(float attackDamage)
     {
-        StartCoroutine(DamageColorCooldown());
+        //StartCoroutine(DamageColorCooldown());
         CurrentHealth -= attackDamage;
         AmIDead();
     }
@@ -44,6 +46,7 @@ public class EnemyManager : MonoBehaviour
     {
         myEgg.SetActive(true);
         _eggManager.DecreaseEgg(eggStealAmount);
+        CarryEggAmount++;
     }
     private IEnumerator DamageColorCooldown()
     {
@@ -58,7 +61,10 @@ public class EnemyManager : MonoBehaviour
     private void AmIDead() {
         if (CurrentHealth <= 0)
         {
+            if (CarryEggAmount > 0)
+                _eggManager.IncreaseEgg(CarryEggAmount);
             Destroy(gameObject,0.2f);
+            
         }
     }
 }

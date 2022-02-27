@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1986915550519172059}
   - component: {fileID: 1986915550519172058}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986915550519172056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.977, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986915551568160521}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 9075063912793984986}
   - component: {fileID: 5761847824804126277}
   - component: {fileID: 8209549777236049895}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: YilanEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,17 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d83487e997c5642947296cd8b28cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionTolerance: 5
   moveSpeed: 70
   groundCheck: {fileID: 3022826990308750291}
   groundDistance: 0.8
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  positionTolerance: 2.5
-  spawnerNo: 0
-  NestPoints: []
-  SpawnPoints: []
-  isArrived: 0
 --- !u!114 &9075063912793984986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
+  eggStealAmount: 1
   damageEffectCD: 0.3
   myEgg: {fileID: 6460824890091690019}
 --- !u!95 &5761847824804126277
@@ -166,10 +163,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.95
-  m_Height: 3.6
+  m_Radius: 0.9499999
+  m_Height: 2.363183
   m_Direction: 1
-  m_Center: {x: 0.57, y: -0.00000023841858, z: 0.24}
+  m_Center: {x: 0.57000005, y: 1.1166208, z: 0.24000001}
 --- !u!1 &4944780054866706731
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3022826990308750291}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -194,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4944780054866706731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.137, z: 0}
+  m_LocalPosition: {x: 0, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986915551568160521}
@@ -212,7 +209,7 @@ GameObject:
   - component: {fileID: 8031728849598314686}
   - component: {fileID: 7513932445255160703}
   - component: {fileID: 3841174128573197437}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6460824890091690019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: -0.04, y: 3.812, z: 0.22}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1986915551568160521}
@@ -347,9 +344,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8086465377187013757, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7686609989614500704, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4388680750337458582, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4240153930650356178, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2675560840559964356, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
       propertyPath: m_Name
       value: "Y\u0131laannnnaaa"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790183945725220954, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371116400880793022, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849606729195245590, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295464275771937363, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684816230721156403, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905609870639353253, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 820d8a799f2ec7343884da8aaf70f0c9, type: 3}
