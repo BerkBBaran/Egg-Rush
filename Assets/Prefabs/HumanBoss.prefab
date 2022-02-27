@@ -68,17 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d83487e997c5642947296cd8b28cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionTolerance: 5
   moveSpeed: 70
   groundCheck: {fileID: 3394260979474988365}
   groundDistance: 0.8
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  positionTolerance: 5
-  spawnerNo: 0
-  NestPoints: []
-  SpawnPoints: []
-  isArrived: 0
 --- !u!114 &8870105330459001156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
+  eggStealAmount: 1
   damageEffectCD: 0.3
   myEgg: {fileID: 6863658734269847229}
 --- !u!95 &5269169030778654939
@@ -365,6 +362,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7befbf25feca291459d2f072d282f0e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6248108300979034915, guid: 7befbf25feca291459d2f072d282f0e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7befbf25feca291459d2f072d282f0e6, type: 3}
       propertyPath: m_Name

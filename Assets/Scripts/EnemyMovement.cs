@@ -6,16 +6,16 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     //serialize
+    [SerializeField] private float positionTolerance = 2f;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform groundCheck;
     [SerializeField] public float groundDistance = 0.4f;
     [SerializeField] public LayerMask groundMask;
-    [SerializeField] private float positionTolerance = 2f;
     //public
-    public int spawnerNo;
-    public List<Transform> NestPoints;
-    public List<Transform> SpawnPoints;
-    public bool isArrived = false;
+    [NonSerialized] public int spawnerNo;
+    [NonSerialized] public List<Transform> NestPoints;
+    [NonSerialized] public List<Transform> SpawnPoints;
+    [NonSerialized] public bool isArrived = false;
 
     Rigidbody rb;
     //privates
@@ -29,9 +29,19 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     public void goPosition(Vector3 targetPosition)
         {
-          
+            Vector3 movementDir;
             toPosition = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
 
+            //Face Position
+            
+            movementDir = toPosition;
+            movementDir.Normalize();
+            if(movementDir != Vector3.zero)
+                {
+                    transform.forward = -movementDir;
+                }
+            
+            //Move Position
             if (Mathf.Abs(targetPosition.x - transform.position.x) + Mathf.Abs(targetPosition.z - transform.position.z) > positionTolerance)
             {
                 if (isGrounded)
@@ -39,7 +49,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else{
                 isArrived = true;
-                _enemyManager.TakeEgg();
+                _enemyManager.TakeEgg();                
             //    StartCoroutine(SetOnArriveAnimation()); Buglu, sürekli çalışıp duruyor çözemedim
             }   
         }
@@ -48,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = transform.GetComponent<Rigidbody>();
         targetNestNo = TargetNest();
-        _enemyManager = transform.GetComponent<EnemyManager>();
+        _enemyManager = gameObject.GetComponent<EnemyManager>();
     }
 
     // Update is called once per frame

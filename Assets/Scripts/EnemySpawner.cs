@@ -11,7 +11,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] public List<Transform> bossPrefabs;
     [SerializeField] private float startDelay;
     [SerializeField] private float spawnRate;
-  
+    [SerializeField] private EggManager _eggManager;
+
 
     //private
 
@@ -40,6 +41,10 @@ public class EnemySpawner : MonoBehaviour
         mysc.spawnerNo = spawnIndex;
         mysc.NestPoints = NestPoints;
         mysc.SpawnPoints = SpawnPoints;
+
+        //enemymanager data transfer
+        EnemyManager mysc2 = animal.GetComponent<EnemyManager>();
+        mysc2._eggManager = _eggManager;
 
 
     }

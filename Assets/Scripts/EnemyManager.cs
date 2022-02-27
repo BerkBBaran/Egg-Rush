@@ -1,15 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    //serialized
     [SerializeField] private float MaxHealth;
+    [SerializeField] private int eggStealAmount=1;
     [SerializeField] private float damageEffectCD = 0.3f;
     [SerializeField] private GameObject myEgg;
+
+    //public
+    [NonSerialized] public EggManager _eggManager;
+
+    //private
     private float CurrentHealth;
     private EnemyMovement _enemyMovement;
     private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +43,7 @@ public class EnemyManager : MonoBehaviour
     public void TakeEgg()
     {
         myEgg.SetActive(true);
+        _eggManager.DecreaseEgg(eggStealAmount);
     }
     private IEnumerator DamageColorCooldown()
     {
