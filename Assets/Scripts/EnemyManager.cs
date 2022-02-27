@@ -9,10 +9,12 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject myEgg;
     private float CurrentHealth;
     private EnemyMovement _enemyMovement;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         SetMaxHealth();
     }
 
@@ -32,7 +34,6 @@ public class EnemyManager : MonoBehaviour
     public void TakeEgg()
     {
         myEgg.SetActive(true);
-
     }
     private IEnumerator DamageColorCooldown()
     {

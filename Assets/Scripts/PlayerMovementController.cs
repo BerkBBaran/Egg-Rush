@@ -24,12 +24,21 @@ public class PlayerMovementController : MonoBehaviour
 
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
+    private Animator animator;
 
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
+        //Attack Animations
+        if(Input.GetButton("Fire1")){
+            StartCoroutine(SetAttackUpAnimation());
+        }
+        
         //cursor lock
-
         if (Input.GetKey(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -75,8 +84,17 @@ public class PlayerMovementController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            animator.SetBool("isWalking", true);
+        }else{
+            animator.SetBool("isWalking", false);
         }
      
 
+    }
+    public IEnumerator SetAttackUpAnimation()
+    {
+        animator.SetTrigger("onAttackingUp");
+        yield return new WaitForSeconds(0.75f);
+        animator.ResetTrigger("onAttackingUp");
     }
 }

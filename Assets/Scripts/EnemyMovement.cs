@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 toPosition;
     private bool isGrounded;
     private EnemyManager _enemyManager;
+    private Animator animator;
     
 
     // Start is called before the first frame update
@@ -39,10 +40,12 @@ public class EnemyMovement : MonoBehaviour
             else{
                 isArrived = true;
                 _enemyManager.TakeEgg();
+            //    StartCoroutine(SetOnArriveAnimation()); Buglu, sürekli çalışıp duruyor çözemedim
             }   
         }
     void Start()
     {     
+        animator = GetComponent<Animator>();
         rb = transform.GetComponent<Rigidbody>();
         targetNestNo = TargetNest();
         _enemyManager = transform.GetComponent<EnemyManager>();
@@ -78,7 +81,11 @@ public class EnemyMovement : MonoBehaviour
             return 3;
     }
 
-    
+    private IEnumerator SetOnArriveAnimation(){
+        animator.SetTrigger("onArrived");
+        yield return new WaitForSeconds(1.0f);
+        animator.ResetTrigger("onArrived");
+    }
 
 }
 
